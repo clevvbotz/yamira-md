@@ -435,7 +435,7 @@ module.exports = {
                     sPromote: '',
                     sDemote: '',
                     delete: true,
-                    antiLink: false,
+                    antiLink: true,
                     viewonce: false,
                     antiToxic: true,
                 }
@@ -690,6 +690,7 @@ module.exports = {
              } catch (e) {
                  console.log(m, m.quoted, e)
              }
+	    await this.readMessages([m.key])
             if (opts['autoread']) await this.readMessages([m.key])
         }
     },
@@ -723,7 +724,7 @@ module.exports = {
                             title: action === 'add' ? 'Selamat Datang' : 'Selamat tinggal',
                             body: global.wm,
                             thumbnailUrl: pp,
-                            sourceUrl: 'https://api.botcahx.eu.org',
+                            sourceUrl: sgc,
                             mediaType: 1,
                             renderLargerThumbnail: true 
                             }}}, { quoted: null})
